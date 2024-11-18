@@ -1,0 +1,11 @@
+.DS_Store
+
+dist
+node_modules
+.env
+package-lock.json
+yarn.lock
+Dockerfile
+package.json
+.vscode/launch.json
+package.json

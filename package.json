@@ -1,0 +1,32 @@
+{
+     "name": "server-doan",
+     "version": "1.0.0",
+     "lockfileVersion": 3,
+     "requires": true,
+     "author": "",
+     "description": "",
+     "keywords": [],
+     "license": "ISC",
+     "main": "index.js",
+     "packages": {},
+     "devDependencies": {
+          "@types/express": "^4.17.21",
+          "@types/express-session": "^1.17.10",
+          "@types/morgan": "^1.9.9",
+          "concurrently": "^8.2.2",
+          "ts-node-dev": "^2.0.0",
+          "typescript": "^5.3.3"
+     },
+     "scripts": {
+          "build": "tsc --sourceMap false",
+          "build:watch": "tsc -w",
+          "dev": "concurrently \"npm run build:watch\" \"npm run start:watch\" --names \"tsc,node\" -c \"blue,green\"",
+          "prisma-gen": "prisma generate",
+          "start": "node dist/index.js",
+          "start:watch": "nodemon dist/index.js"
+     },
+     "dependencies": {
+          "dotenv": "^16.4.5",
+          "mongodb": "^6.10.0"
+     }
+}

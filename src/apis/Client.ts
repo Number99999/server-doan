@@ -8,5 +8,3 @@ export function GetInfoInHome(router: Router) {
 
     })
 }
-
-// export function 

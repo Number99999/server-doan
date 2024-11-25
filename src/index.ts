@@ -2,17 +2,17 @@ import express from "express";
 import dotenv from "dotenv";
 import path from 'path';
 import Database from "./database";
-
+import cors from 'cors';
+import router from "./apis/index";
 dotenv.config({ path: path.join(process.cwd(), (process.env.ENV_PATH || ""), ".env") });
-const version = "26062024";
-console.log("current version >>>", version)
 
 const app = express();
 const SERVER_PORT = process.env.SERVER_PORT || 3001;
 
-
 app.use(express.json());
+app.use(cors());
 
+app.use("/api", router);
 app.listen(SERVER_PORT, () => console.log(`Server listening on port ${SERVER_PORT}`));
 
 // check and create datanase

@@ -1,7 +1,7 @@
 // @ts-ignore
 import express, { NextFunction, Router } from "express";
-import { AddNews, DeleteNew, EditNews, GetNews } from "./Admin";
-import { GetByNewsType, GetInfoInHome } from "./Client";
+import { AddNews, DeleteNew, GetAllNews, GetNews, UpdateNews } from "./Admin";
+import { GetByNewsType, GetInfoInHome, GetInfoNews } from "./Client";
 
 const router = express.Router();
 
@@ -10,5 +10,8 @@ GetInfoInHome(router);
 GetByNewsType(router);
 DeleteNew(router);
 GetNews(router);
-EditNews(router);
+GetAllNews(router);
+GetInfoNews(router);
+UpdateNews(router);
+DeleteNew(router);
 export default router;

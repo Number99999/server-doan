@@ -40,7 +40,7 @@ export function GetInfoInHome(router: Router) {
 
 
 export function GetByNewsType(router: Router) {
-    router.get("/news/:typeNews", async (req, res) => {
+    router.get("/client/news/:typeNews", async (req, res) => {
         const { typeNews } = req.params;
         try {
             const dbInstance = Database.getInstance();
@@ -51,8 +51,9 @@ export function GetByNewsType(router: Router) {
                 .find({ typeNews })
                 .sort({ timeUp: -1 })
                 .toArray();
+
             if (newsItem.length > 0) {
-                res.status(200).json(newsItem[0]);
+                res.status(200).json(newsItem);
             } else {
                 res.status(404).json({ error: "News not found" });
             }
@@ -70,7 +71,7 @@ export function GetInfoNews(router: Router) {
         const db = await dbInstance.getDb();
         const newsCollection = db.collection("news");
 
-        const news = await newsCollection.find({ _id: new ObjectId(id) });
+        const news = await newsCollection.findOne({ _id: new ObjectId(id) });
         if (news) {
             res.status(200).send(JSON.stringify(news));
         }
